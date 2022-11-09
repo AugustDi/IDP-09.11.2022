@@ -17,13 +17,18 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        def app_name = "IDP"
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             buildConfigField "String", "BASE_URL", '""'
+            buildConfigField "Boolean", "DEVELOPER_MODE", 'false'
+            resValue "string", "app_name", "${app_name} Release"
         }
         debug  {
             buildConfigField "String", "BASE_URL", '""'
+            buildConfigField "Boolean", "DEVELOPER_MODE", 'true'
+            resValue "string", "app_name", "${app_name} debug"
         }
     }
     compileOptions {
