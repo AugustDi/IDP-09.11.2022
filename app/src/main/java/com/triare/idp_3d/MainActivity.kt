@@ -1,94 +1,93 @@
 package com.triare.idp_3d
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.TextureView
-import android.widget.TextView
-import by.kirich1409.viewbindingdelegate.CreateMethod
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import by.kirich1409.viewbindingdelegate.CreateMethod.INFLATE
 import by.kirich1409.viewbindingdelegate.viewBinding
-import com.google.android.material.button.MaterialButton
-import com.google.android.material.textview.MaterialTextView
 import com.triare.idp_3d.databinding.ActivityMainBinding
-import java.util.Objects
-import kotlin.random.Random
-import kotlin.reflect.typeOf
+import com.triare.idp_3d.ext.logInfoActivity
+import com.triare.idp_3d.fragment.LifecycleFragment
 
 class MainActivity : AppCompatActivity() {
 
     private val binding: ActivityMainBinding by viewBinding(INFLATE)
-    private lateinit var textView: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        "onCreate".logError()
+        "onCreate".logInfoActivity()
 
+        binding.action.setOnClickListener {
+            replaceFragment(LifecycleFragment())
+        }
     }
 
     override fun onStart() {
         super.onStart()
 
-        "onStart".logError()
+        "onStart".logInfoActivity()
     }
 
     override fun onRestart() {
         super.onRestart()
 
-        "onRestart".logError()
+        "onRestart".logInfoActivity()
     }
 
     override fun onResume() {
         super.onResume()
 
-        "onResume".logError()
+        "onResume".logInfoActivity()
     }
 
     override fun onPause() {
         super.onPause()
 
-        "onPause".logError()
+        "onPause".logInfoActivity()
     }
 
     override fun onDestroy() {
         super.onDestroy()
 
-        "onDestroy".logError()
+        "onDestroy".logInfoActivity()
     }
 
     override fun onStop() {
         super.onStop()
 
-        "onStop".logError()
+        "onStop".logInfoActivity()
     }
 
     override fun onContentChanged() {
         super.onContentChanged()
 
-        "onContentChanged".logError()
+        "onContentChanged".logInfoActivity()
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
 
-        "onRestoreInstanceState".logError()
+        "onRestoreInstanceState".logInfoActivity()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
 
-        "onSaveInstanceState".logError()
+        "onSaveInstanceState".logInfoActivity()
     }
 
     override fun onUserInteraction() {
         super.onUserInteraction()
 
-        "onUserInteraction".logError()
+        "onUserInteraction".logInfoActivity()
     }
-}
 
-fun String.logError() {
-    Log.e("MainActivity", this)
+    private fun replaceFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.navHostFragment, fragment)
+            .addToBackStack("test")
+            .commit()
+    }
 }
