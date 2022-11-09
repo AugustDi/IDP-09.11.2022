@@ -17,72 +17,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        "onCreate".logInfoActivity()
-
         binding.action.setOnClickListener {
             replaceFragment(LifecycleFragment())
         }
     }
 
-    override fun onStart() {
-        super.onStart()
-
-        "onStart".logInfoActivity()
-    }
-
-    override fun onRestart() {
-        super.onRestart()
-
-        "onRestart".logInfoActivity()
-    }
-
-    override fun onResume() {
-        super.onResume()
-
-        "onResume".logInfoActivity()
-    }
-
-    override fun onPause() {
-        super.onPause()
-
-        "onPause".logInfoActivity()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-
-        "onDestroy".logInfoActivity()
-    }
-
-    override fun onStop() {
-        super.onStop()
-
-        "onStop".logInfoActivity()
-    }
-
-    override fun onContentChanged() {
-        super.onContentChanged()
-
-        "onContentChanged".logInfoActivity()
-    }
-
-    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
-        super.onRestoreInstanceState(savedInstanceState)
-
-        "onRestoreInstanceState".logInfoActivity()
-    }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-
-        "onSaveInstanceState".logInfoActivity()
-    }
-
-    override fun onUserInteraction() {
-        super.onUserInteraction()
-
-        "onUserInteraction".logInfoActivity()
-    }
 
     private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
