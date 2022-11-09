@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">IDP_3d</string>
+    <string name="nest_screen">Nest screen</string>
+    <string name="hello">Hello</string>
 </resources>
