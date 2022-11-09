@@ -19,60 +19,76 @@ class MainActivity : AppCompatActivity() {
 
     private val binding: ActivityMainBinding by viewBinding(INFLATE)
     private lateinit var textView: TextView
-    private val randomNumber: Int by lazy { getRandomInt() }
-    private val getUser: User by lazy { initUser() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-       initLateInit()
-        showLazyResult()
-        isAnyItString(1)
-        isAnyItString(1f)
-        isAnyItString("i")
-
-        isObjItString(initObjectUser.userName)
+        "onCreate".logError()
 
     }
 
-    private fun initLateInit(){
-        textView = binding.text
+    override fun onStart() {
+        super.onStart()
 
-        textView.setText(R.string.hello)
-    }
-    private fun showLazyResult(){
-        binding.number.text = randomNumber.toString()
-        binding.numberOne.text = randomNumber.toString()
+        "onStart".logError()
     }
 
-    private fun getRandomInt() = Random.nextInt()
+    override fun onRestart() {
+        super.onRestart()
 
-    private fun isAnyItString(x: Any) {
-        if (x is String) {
-            Log.i(TAG,"$x is a String")
-        }else{Log.i(TAG,"$x is not a String")}
+        "onRestart".logError()
     }
 
-    private fun isObjItString(x:Any) {
-        if (x is User) {
-            Log.i(TAG,x.toString())
-        }else{Log.i(TAG,"is not a Object")}
+    override fun onResume() {
+        super.onResume()
+
+        "onResume".logError()
     }
 
-    private val initObjectUser = object {
-        val userName = "name"
-        val userSurname = "surname"
+    override fun onPause() {
+        super.onPause()
+
+        "onPause".logError()
     }
 
-    private fun initUser() = User("SomeName", "someSurname")
+    override fun onDestroy() {
+        super.onDestroy()
 
-    companion object {
-        private val TAG = "TEST"
+        "onDestroy".logError()
+    }
+
+    override fun onStop() {
+        super.onStop()
+
+        "onStop".logError()
+    }
+
+    override fun onContentChanged() {
+        super.onContentChanged()
+
+        "onContentChanged".logError()
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+
+        "onRestoreInstanceState".logError()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+
+        "onSaveInstanceState".logError()
+    }
+
+    override fun onUserInteraction() {
+        super.onUserInteraction()
+
+        "onUserInteraction".logError()
     }
 }
 
-data class User(
-    val name: String,
-    val surname: String
-)
+fun String.logError() {
+    Log.e("MainActivity", this)
+}
