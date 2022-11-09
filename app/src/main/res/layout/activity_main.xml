@@ -25,12 +25,7 @@
         android:layout_height="0dp"
         tools:text="Hello World!"
         android:gravity="center"
-        android:textColor="@color/material_dynamic_primary70"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="18sp" />
     <TextView
         android:id="@+id/numberOne"
         android:layout_weight="1"
